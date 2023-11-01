@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './App.css'; // Import styles from App.css
 
-function App() {
+function CenteredText() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="centered-container">
+      <h1 className="centered-text">Doer</h1>
+      <p className="login-text">Log In</p>
+      <div className="input-container">
+        <label className="input-label">Email</label>
+        <input
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
+          className="email-input"
+        />
+      </div>
+      <div className="input-container">
+        <label className="input-label">Password</label>
+        <input
+          type="password" // Use type="password for password input
+          value={password}
+          onChange={handlePasswordChange}
+          className="password-input"
+        />
+      </div>
     </div>
   );
 }
 
-export default App;
+export default CenteredText;
